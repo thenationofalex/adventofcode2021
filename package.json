@@ -1,0 +1,15 @@
+{
+  "name": "advent-of-code-2021",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thenationofalex/adventofcode2021.git"
+  },
+  "author": "Alex B",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/thenationofalex/adventofcode2021/issues"
+  },
+  "homepage": "https://github.com/thenationofalex/adventofcode2021#readme"
+}
