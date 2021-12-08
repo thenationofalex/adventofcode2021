@@ -18,10 +18,7 @@ fs.readFile(path.join(__dirname, 'input'), "utf8", (err, data) => {
     } else if (element > mapData[index - 1]) {
       console.log(element, "(increased)")
       answer += 1
-    } else if ((element < mapData[index - 1])) {
-      console.log(element, "(decreased)")
     }
-
   }
 
   console.log(answer)
