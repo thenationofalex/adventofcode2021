@@ -1,7 +1,5 @@
 const fs = require('fs')
 
-const powerConsumption = (gamma, epsilon) => gamma * epsilon
-
 const diagnostic = (input) => {
   let gamma = ""
   let epsilon = ""
@@ -44,11 +42,58 @@ const diagnostic = (input) => {
     } else {
       epsilon = epsilon + "1"
     }
-
-    
   }
 
   console.log(parseInt(gamma, 2) * parseInt(epsilon, 2))
+}
+
+
+const lifeSupport = input => {
+  let co2;
+  let o2;
+  let tmp = [[], []]
+
+  const iter = (input, counter) => {
+    tmp = [[], []]
+
+    for (let index = 0; index < input.length; index++) {
+      if (parseInt(input[index].split('')[counter]) === 0) {
+        tmp[0].push(input[index].toString())
+      } else {
+        tmp[1].push(input[index].toString())
+      }
+    }  
+  }
+
+  iter(input, 0)
+
+  let pointer = 1
+  let holdOnes = tmp[1]
+
+  while (tmp[0].length !== 1) {
+    let cloned = tmp[0]
+    iter(cloned, pointer)
+    pointer += 1
+  }
+  
+  co2 = tmp[0]
+  pointer = 1
+
+  console.log(holdOnes)
+  iter(holdOnes, pointer)
+  pointer += 1
+
+  while (tmp[1].length !== 1) {
+    let cloned = tmp[1]
+    iter(cloned, pointer)
+    pointer += 1
+  }
+
+  o2 = tmp[1]
+
+  console.log('--------------')
+  console.log(parseInt(o2, 2) , parseInt(co2, 2))
+  console.log('--------------')
 }
 
 fs.readFile('input', (err, data) => {
@@ -56,5 +101,6 @@ fs.readFile('input', (err, data) => {
     throw err
   }
   const lines = data.toString().split('\n')
-  diagnostic(lines)
+  // diagnostic(lines)
+  lifeSupport(lines)
 });
