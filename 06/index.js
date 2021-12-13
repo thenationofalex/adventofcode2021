@@ -1,8 +1,6 @@
 const fs = require('fs')
 
 class Sea {
-
-    static school = []
     
     constructor() {
         this.school = []
@@ -25,7 +23,6 @@ class Sea {
                 fish.age -= 1
             }
         })
-        console.log(this.getAllTheFish())
     }
 }
 
@@ -42,7 +39,7 @@ fs.readFile('input', (err, data) => {
         theSea.addFishToSea({ age: parseInt(line) })
     })
 
-    const timeLine = 256
+    const timeLine = 30
     let counter = 0
 
     while (counter !== timeLine) {
